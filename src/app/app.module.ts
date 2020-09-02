@@ -4,7 +4,10 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+import { HttpClientModule } from '@angular/common/http';
 
+import {ServiciosMapaService} from './services/servicios-mapa.service';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 @NgModule({
   declarations: [
     AppComponent
@@ -12,9 +15,11 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    LeafletModule
+    LeafletModule,
+    HttpClientModule,
+    NgbModule
   ],
-  providers: [],
+  providers: [ServiciosMapaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  url_wms_ombues_fraybentos : 'zzzzzzz'
 };
