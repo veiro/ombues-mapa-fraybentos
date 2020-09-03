@@ -9,23 +9,23 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers:  [ ServiciosMapaService ]
+  providers: [ServiciosMapaService]
 })
 export class AppComponent {
 
 
   constructor(private _serviciosMapaService: ServiciosMapaService,
-              private _modalService: NgbModal) {  
+    private _modalService: NgbModal) {
 
-    for (let i = 0; i < 700; i++){
-        this.fotos[i] = i;
+    for (let i = 0; i < 700; i++) {
+      this.fotos[i] = i;
     }
   }
 
-  
+
   title = 'ombues-mapa-fraybentos';
-  fotos=[700];
-  fotosAMostrar=[];
+  fotos = [700];
+  fotosAMostrar = [];
   urlImg: any;
   closeResult = '';
   @ViewChild('content') content: ElementRef;
@@ -112,20 +112,18 @@ export class AppComponent {
     this._url = environment.url_wms_ombues_fraybentos + Util.getParamString(params, this._url, true);
 
     this._serviciosMapaService.get(this._url).subscribe(
-      (data:any) => {
-        console.log(data.features[0].properties.globalid.toUpperCase());
-       
-        this.urlImg = '../assets/fraybentos-attach/\{' + data.features[0].properties.globalid.toUpperCase() +'\}_';
-        this.imgExist();
-        this._modalService.open(this.content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+      (data: any) => {
+
+        console.log(data.features[0].properties);
+        this.armarListadoImagenesMostrar(data.features[0].properties.imagenes);
+
+        this._modalService.open(this.content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
           this.closeResult = `Closed with: ${result}`;
         }, (reason) => {
           this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
         });
-       
+
       });
-
-
   }
 
   private getDismissReason(reason: any): string {
@@ -138,20 +136,12 @@ export class AppComponent {
     }
   }
 
-  imgExist(){
-    this.fotosAMostrar=[];
-    for (let item in this.fotos) {
-      this._serviciosMapaService.getImage(this.urlImg+item+'.jpeg').subscribe(
-        data  => {
-          console.log("Si")
-          this.fotosAMostrar.push(this.urlImg+item+'.jpeg')
-        },
-        error => {
-          //console.log("No");
-        }
-      );
-    }
-    
-
+  armarListadoImagenesMostrar(idImagenes: string) {
+    this.fotosAMostrar = [];
+    let idSeparados = idImagenes.split(",");
+    idSeparados.forEach(element => {
+      let direccion = '../assets/fraybentos-attach/' + element + '.jpeg';
+      this.fotosAMostrar.push(direccion);
+    });
   }
 }
