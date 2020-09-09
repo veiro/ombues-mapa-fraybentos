@@ -19,7 +19,7 @@ export class AppComponent {
 
   fotosAMostrar = [];
   closeResult = '';
-
+  puntoSeleccionado = null;
   @ViewChild('content') content: ElementRef;
 
   // layers
@@ -62,7 +62,7 @@ export class AppComponent {
       (data: any) => {
 
         console.log(data.features[0].properties);
-
+        this.puntoSeleccionado = data.features[0].properties;
         this.armarListadoImagenesMostrar(data.features[0].properties.imagenes);
 
         this._modalService.open(this.content, { size: 'lg', ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {

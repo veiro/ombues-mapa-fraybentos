@@ -5,19 +5,43 @@
 
 <ng-template #content let-modal>
      <div class="modal-header">
-          <h4 class="modal-title" id="modal-basic-title">Información del ombue</h4>
+          <h4 class="modal-title" id="modal-basic-title">Información del punto</h4>
           <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
                <span aria-hidden="true">&times;</span>
           </button>
      </div>
      <div class="modal-body">
+          <div class="container">
+               <div class="row">
+                    <div class="col-md-6">
+                         <h3>Datos basicos</h3>
+                         <p> <b>Fecha relevamiento:</b> {{puntoSeleccionado.fechayhorarelevamiento}}</p>
+                         <p> <b>Tipo relevamiento:</b> {{puntoSeleccionado.tiporelevamiento}}</p>
+                         <p> <b>Tipo vegetacion</b> {{puntoSeleccionado.tipovegetacion}}</p>
+                         <p> <b>Especie:</b> {{puntoSeleccionado.especie}}</p>
+                         <p> <b>Sexo:</b> {{puntoSeleccionado.sexoarbol}}</p>
+                         <p> <b>Descripción:</b> {{puntoSeleccionado.descripcion}}</p>
+                         <p> <b>Observaciones:</b> {{puntoSeleccionado.observaciones}}</p>
+                         <h3>Dimensiones</h3>
+                         <p> <b>Diametro corona raices superficiales:</b>
+                              {{puntoSeleccionado.diametrodecoronaraicessuperficiales}}</p>
+                         <p> <b> Diametro tronco:</b> {{puntoSeleccionado.diametrotronco}}</p>
+                         <p> <b>Diametro copa:</b> {{puntoSeleccionado.diametrocopa}}</p>
+                         <p> <b> Altura del arbol:</b> {{puntoSeleccionado.alturaarbol}}</p>
+                    </div>
+                    <!-- <div class="col-md-6" *ngFor="let item of fotosAMostrar">
+                         <img style="padding-bottom: 20px;" height="500px" src="{{item}}" />
+                    </div> -->
 
-          <div class="col-lg-6">
+                    <ngb-carousel class="col-md-6" style="height: 500px;">
+                         <ng-template ngbSlide *ngFor="let item of fotosAMostrar"  style="height: 500px;">
+                              <div style="height: 500px;">
+                                   <img src="{{item}}" >
+                              </div>
+                         </ng-template>
+                    </ngb-carousel>
 
-          </div>          
-          <div class="col-lg-6" *ngFor="let item of fotosAMostrar">
-               
-               <img style="padding-bottom: 20px;" height="500px" src="{{item}}" />
+               </div>
           </div>
      </div>
 </ng-template>
