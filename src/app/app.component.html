@@ -1,17 +1,21 @@
 <div class="map" leaflet [leafletOptions]="options" [leafletLayersControl]="layersControl"
-     (leafletClick)="clickEvent($event)" (leafletMapReady)="onMapReady($event)">
+     (leafletClick)="onClickOnMapEvent($event)" (leafletMapReady)="onMapReady($event)">
 </div>
 
 
 <ng-template #content let-modal>
      <div class="modal-header">
-          <h4 class="modal-title" id="modal-basic-title">Galeria de imágenes</h4>
+          <h4 class="modal-title" id="modal-basic-title">Información del ombue</h4>
           <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
                <span aria-hidden="true">&times;</span>
           </button>
      </div>
      <div class="modal-body">
-          <div *ngFor="let item of fotosAMostrar">
+
+          <div class="col-lg-6">
+
+          </div>          
+          <div class="col-lg-6" *ngFor="let item of fotosAMostrar">
                
                <img style="padding-bottom: 20px;" height="500px" src="{{item}}" />
           </div>
