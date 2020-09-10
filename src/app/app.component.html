@@ -15,31 +15,30 @@
                <div class="row">
                     <div class="col-md-6">
                          <h3>Datos basicos</h3>
-                         <p> <b>Fecha relevamiento:</b> {{puntoSeleccionado.fechayhorarelevamiento}}</p>
-                         <p> <b>Tipo relevamiento:</b> {{puntoSeleccionado.tiporelevamiento}}</p>
-                         <p> <b>Tipo vegetacion</b> {{puntoSeleccionado.tipovegetacion}}</p>
-                         <p> <b>Especie:</b> {{puntoSeleccionado.especie}}</p>
-                         <p> <b>Sexo:</b> {{puntoSeleccionado.sexoarbol}}</p>
-                         <p> <b>Descripción:</b> {{puntoSeleccionado.descripcion}}</p>
-                         <p> <b>Observaciones:</b> {{puntoSeleccionado.observaciones}}</p>
+                         <p> <b>Fecha relevamiento:</b> {{puntoSeleccionado.fechayhorarelevamiento | datosvacios}}</p>
+                         <p> <b>Tipo relevamiento:</b> {{puntoSeleccionado.tiporelevamiento | datosvacios}}</p>
+                         <p> <b>Tipo vegetacion</b> {{puntoSeleccionado.tipovegetacion | datosvacios}}</p>
+                         <p> <b>Especie:</b> {{puntoSeleccionado.especie | datosvacios}}</p>
+                         <p> <b>Sexo:</b> {{puntoSeleccionado.sexoarbol | datosvacios}}</p>
+                         <p> <b>Descripción:</b> {{puntoSeleccionado.descripcion | datosvacios}}</p>
+                         <p> <b>Observaciones:</b> {{puntoSeleccionado.observaciones | datosvacios}}</p>
+                    </div>
+                    <div class="col-md-6">
                          <h3>Dimensiones</h3>
                          <p> <b>Diametro corona raices superficiales:</b>
-                              {{puntoSeleccionado.diametrodecoronaraicessuperficiales}}</p>
-                         <p> <b> Diametro tronco:</b> {{puntoSeleccionado.diametrotronco}}</p>
-                         <p> <b>Diametro copa:</b> {{puntoSeleccionado.diametrocopa}}</p>
-                         <p> <b> Altura del arbol:</b> {{puntoSeleccionado.alturaarbol}}</p>
+                              {{puntoSeleccionado.diametrodecoronaraicessuperficiales | datosvacios}}</p>
+                         <p> <b> Diametro tronco:</b> {{puntoSeleccionado.diametrotronco | datosvacios}}</p>
+                         <p> <b>Diametro copa:</b> {{puntoSeleccionado.diametrocopa | datosvacios}}</p>
+                         <p> <b> Altura del arbol:</b> {{puntoSeleccionado.alturaarbol | datosvacios}}</p>
                     </div>
-                    <!-- <div class="col-md-6" *ngFor="let item of fotosAMostrar">
-                         <img style="padding-bottom: 20px;" height="500px" src="{{item}}" />
-                    </div> -->
 
-                    <ngb-carousel class="col-md-6" style="height: 500px;">
-                         <ng-template ngbSlide *ngFor="let item of fotosAMostrar"  style="height: 500px;">
-                              <div style="height: 500px;">
-                                   <img src="{{item}}" >
-                              </div>
-                         </ng-template>
-                    </ngb-carousel>
+                    <div class="col-md-12" style="padding-top: 1em;">
+                         <h3>Imágenes</h3>
+                         <div lightbox-group>
+                              <img *ngFor="let item of fotosAMostrar" class="imagenes-listado"
+                                   src="{{item}}" lightbox />
+                         </div>
+                    </div>
 
                </div>
           </div>

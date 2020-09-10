@@ -6,3 +6,16 @@
 p{
   margin-bottom: 0rem !important;
 }
+
+.imagenes-listado {
+  height: 320px; 
+  padding-right: 1em; 
+  padding-bottom: 1em;
+ }
+
+@media (max-width: 991px){
+ .imagenes-listado {
+  width: 100%;
+  padding-bottom: 1em;
+ }
+}
