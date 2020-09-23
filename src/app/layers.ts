@@ -10,6 +10,14 @@ export abstract class Layers {
         attribution: '&copy; OpenStreetMap contributors'
     });
 
+    static ortoMosaico = tileLayer.wms(environment.url_wms_ombues_fraybentos, {
+        layers: 'ortomosaico_fraybentos',
+        transparent: true,
+        format: 'image/jpeg',
+        maxZoom: 22,
+
+    });
+
     static ombues_fraybentos = tileLayer.wms(environment.url_wms_ombues_fraybentos, {
         layers: 'fraybentos',
         transparent: true,

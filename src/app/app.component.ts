@@ -26,12 +26,14 @@ export class AppComponent {
   osm = Layers.osm;
   mapaPolitico = Layers.mapaPolitico;
   ombues_fraybentos = Layers.ombues_fraybentos;
+  ortomosaico = Layers.ortoMosaico;
 
   options = {
     layers: [
-      this.osm,
-      this.ombues_fraybentos,
-      this.mapaPolitico
+      // this.osm,
+       this.ombues_fraybentos,
+      // this.mapaPolitico,
+      this.ortomosaico
     ],
     zoom: 7,
     center: latLng([-32.431723, -56.319552])
@@ -39,8 +41,9 @@ export class AppComponent {
 
   layersControl = {
     baseLayers: {
-      'Open Street Map': this.osm,
-      'Mapa politico': this.mapaPolitico
+      // 'Open Street Map': this.osm,
+      // 'Mapa politico': this.mapaPolitico,
+      'Ortomosaico fraybentos' :  this.ortomosaico
     },
     overlays: {
       'Ombues': this.ombues_fraybentos
@@ -63,6 +66,7 @@ export class AppComponent {
 
         console.log(data.features[0].properties);
         this.puntoSeleccionado = data.features[0].properties;
+        console.log('this.puntoSeleccionado',this.puntoSeleccionado);
         this.armarListadoImagenesMostrar(data.features[0].properties.imagenes);
 
         this._modalService.open(this.content, { size: 'lg', ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
