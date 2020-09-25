@@ -30,9 +30,9 @@ export class AppComponent {
 
   options = {
     layers: [
-      // this.osm,
-       this.ombues_fraybentos,
-      // this.mapaPolitico,
+      //this.osm,
+      this.ombues_fraybentos,
+      this.mapaPolitico,
       this.ortomosaico
     ],
     zoom: 7,
@@ -41,12 +41,13 @@ export class AppComponent {
 
   layersControl = {
     baseLayers: {
-      // 'Open Street Map': this.osm,
-      // 'Mapa politico': this.mapaPolitico,
-      'Ortomosaico fraybentos' :  this.ortomosaico
+      //'Open Street Map': this.osm,
+      'Mapa politico': this.mapaPolitico
+      
     },
-    overlays: {
-      'Ombues': this.ombues_fraybentos
+    overlays: {      
+      'Ortomosaico fraybentos' :  this.ortomosaico,
+      'Ombues': this.ombues_fraybentos,
     }
   }
 
