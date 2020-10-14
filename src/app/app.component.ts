@@ -32,8 +32,9 @@ export class AppComponent {
     layers: [
       //this.osm,
       this.ombues_fraybentos,
+      this.ortomosaico,
       this.mapaPolitico,
-      this.ortomosaico
+      
     ],
     zoom: 7,
     center: latLng([-32.431723, -56.319552])
@@ -42,11 +43,14 @@ export class AppComponent {
   layersControl = {
     baseLayers: {
       //'Open Street Map': this.osm,
-      'Mapa politico': this.mapaPolitico
       
+     
+     
+     'Mapa politico': this.mapaPolitico,
     },
     overlays: {      
-      'Ortomosaico fraybentos' :  this.ortomosaico,
+     // 
+     'Ortomosaico fraybentos' :  this.ortomosaico,
       'Ombues': this.ombues_fraybentos,
     }
   }
@@ -56,6 +60,8 @@ export class AppComponent {
   // metodo para cargar en this.map el objeto mapa para operar con el.
   onMapReady(map: Map) {
     this.map = map;
+
+    
   }
 
   // metodo para abrir el modal
