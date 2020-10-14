@@ -11,10 +11,10 @@ export abstract class Layers {
     });
 
     static ortoMosaico = tileLayer.wms(environment.url_wms_ombues_fraybentos+"?tiled=true", {
-        layers: 'ortomosaico_fraybentos',
+        layers: 'ortomosaico2',
         transparent: true,
-        format: 'image/jpeg',
-        minZoom: 17,
+        format: 'image/png',
+        minZoom: 1,
         maxZoom: 22,
        // bounds: latLngBounds([[-6493487.9815,-3914302.0000],[-6486828.4054,-3910279.5014]])
     });
