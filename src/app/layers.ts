@@ -16,7 +16,6 @@ export abstract class Layers {
         format: 'image/png',
         minZoom: 1,
         maxZoom: 22,
-       // bounds: latLngBounds([[-6493487.9815,-3914302.0000],[-6486828.4054,-3910279.5014]])
     });
 
     static ombues_fraybentos = tileLayer.wms(environment.url_wms_ombues_fraybentos, {
