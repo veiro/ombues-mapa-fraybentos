@@ -125,7 +125,7 @@ export class AppComponent {
     this.fotosAMostrar = [];
     let idSeparados = idImagenes.split(",");
     idSeparados.forEach(element => {
-      let direccion = '../assets/fraybentos-attach/' + element + '.jpeg';
+      let direccion = 'assets/fraybentos-attach/' + element + '.jpeg';
       this.fotosAMostrar.push(direccion);
     });
   }
