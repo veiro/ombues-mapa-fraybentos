@@ -11,6 +11,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {CrystalLightboxModule} from '@crystalui/angular-lightbox';
 import {DatosVacioPipe}from './utils/datos-vacio-pipe';
 
+
+
 @NgModule({
   declarations: [
     AppComponent,

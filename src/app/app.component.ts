@@ -5,6 +5,7 @@ import { ServiciosMapaService } from './services/servicios-mapa.service';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { Layers } from './layers'
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -12,7 +13,6 @@ import { Layers } from './layers'
   providers: [ServiciosMapaService]
 })
 export class AppComponent {
-
 
   constructor(private _serviciosMapaService: ServiciosMapaService,
     private _modalService: NgbModal) { }
@@ -33,8 +33,7 @@ export class AppComponent {
       //this.osm,
       this.ombues_fraybentos,
       this.ortomosaico,
-      this.mapaPolitico,
-      
+      this.mapaPolitico
     ],
     zoom: 7,
     center: latLng([-32.431723, -56.319552])
@@ -42,14 +41,10 @@ export class AppComponent {
 
   layersControl = {
     baseLayers: {
-      //'Open Street Map': this.osm,
-      
-     
-     
-     'Mapa politico': this.mapaPolitico,
+      //'Open Street Map': this.osm,  
+      'Mapa politico': this.mapaPolitico,
     },
-    overlays: {      
-     // 
+    overlays: {   
      'Ortomosaico fraybentos' :  this.ortomosaico,
       'Ombues': this.ombues_fraybentos,
     }
@@ -59,9 +54,7 @@ export class AppComponent {
 
   // metodo para cargar en this.map el objeto mapa para operar con el.
   onMapReady(map: Map) {
-    this.map = map;
-
-    
+    this.map = map;    
   }
 
   // metodo para abrir el modal
