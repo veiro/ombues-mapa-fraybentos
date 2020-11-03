@@ -10,7 +10,7 @@ export abstract class Layers {
         attribution: '&copy; OpenStreetMap contributors'
     });
 
-    static ortoMosaico = tileLayer.wms(environment.url_wms_ombues_fraybentos+"?tiled=true", {
+    static ortoMosaico = tileLayer.wms(environment.url_wms_ombues_fraybentos + "?tiled=true", {
         layers: 'ortomosaico2',
         transparent: true,
         format: 'image/png',
@@ -25,4 +25,10 @@ export abstract class Layers {
         maxZoom: 21,
 
     });
+
+
+    static ideuy_ortofoto = tileLayer('https://mapas.ide.uy/geoserver-raster/gwc/service/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=' +
+        'ortofotos%3AORTOFOTOS_2019' + '&STYLE=&TILEMATRIXSET=EPSG%3A3857&TILEMATRIX=EPSG%3A3857%3A{z}&TILEROW={y}&TILECOL={x}&FORMAT=image%2Fjpeg',
+        {  maxZoom: 21,});
+
 }

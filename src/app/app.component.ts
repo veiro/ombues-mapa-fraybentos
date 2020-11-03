@@ -27,6 +27,7 @@ export class AppComponent {
   mapaPolitico = Layers.mapaPolitico;
   ombues_fraybentos = Layers.ombues_fraybentos;
   ortomosaico = Layers.ortoMosaico;
+  relieve = Layers.ideuy_ortofoto;
 
   options = {
     layers: [
@@ -34,7 +35,7 @@ export class AppComponent {
       this.ombues_fraybentos,
       this.ortomosaico,
       this.mapaPolitico,
-      
+      this.relieve
     ],
     zoom: 7,
     center: latLng([-32.431723, -56.319552])
@@ -47,6 +48,7 @@ export class AppComponent {
      
      
      'Mapa politico': this.mapaPolitico,
+     'Relieve' : this.relieve
     },
     overlays: {      
      // 
