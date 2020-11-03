@@ -1,4 +1,4 @@
-import { latLng, latLngBounds, tileLayer } from 'leaflet';
+import { tileLayer } from 'leaflet';
 import { environment } from 'src/environments/environment';
 
 export abstract class Layers {
@@ -14,7 +14,7 @@ export abstract class Layers {
         layers: 'ortomosaico2',
         transparent: true,
         format: 'image/png',
-        minZoom: 1,
+        minZoom: 7,
         maxZoom: 22,
     });
 
@@ -22,6 +22,7 @@ export abstract class Layers {
         layers: 'fraybentos',
         transparent: true,
         format: 'image/png',
+        minZoom: 7,
         maxZoom: 21,
 
     });
@@ -29,6 +30,9 @@ export abstract class Layers {
 
     static ideuy_ortofoto = tileLayer('https://mapas.ide.uy/geoserver-raster/gwc/service/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=' +
         'ortofotos%3AORTOFOTOS_2019' + '&STYLE=&TILEMATRIXSET=EPSG%3A3857&TILEMATRIX=EPSG%3A3857%3A{z}&TILEROW={y}&TILECOL={x}&FORMAT=image%2Fjpeg',
-        {  maxZoom: 21,});
+        {
+            maxZoom: 20,
+            minZoom: 7,
+        });
 
 }
